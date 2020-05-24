@@ -38,7 +38,17 @@ export class MapComponent implements OnInit {
 
   //Methode for add option to mapbox
   mapboxAddOptions(){
+    //Add navigation control
     this.map.addControl(new mapboxgl.NavigationControl());
-  }
 
+    //Add locate user to Mapbox
+    this.map.addControl(
+      new mapboxgl.GeolocateControl({
+        positionOptions: {
+          enableHighAccuracy: true
+        },
+        trackUserLocation: true
+      })
+    );
+  }
 }
