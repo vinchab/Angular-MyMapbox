@@ -8,3 +8,15 @@ html, body {
     margin-bottom: 0;
     padding: 0;
 }
+
+
+/*CUSTOM MAPBOX*/
+.mapbox-directions-origin .mapbox-form-label {
+    background-color: #274ec1;
+}
+.mapbox-form-label {
+    background: #39c42d;
+}
+.mapbox-directions-profile input[type="radio"]:checked + label:hover, .mapbox-directions-profile input[type="radio"]:checked + label {
+    background: #8fbfca;
+}

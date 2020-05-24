@@ -59,9 +59,10 @@ export class MapComponent implements OnInit {
       new MapboxDirections({
         accessToken: mapboxgl.accessToken,
         unit: 'metric',
-        language: 'fr'
+        language: 'fr',
+        class: 'custom-map'
       }),
-      'bottom-left'
+      'top-left'
     );
   }
 }
