@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from './../../environments/environment'
+
+/*IMPORT FOR MAPBOX*/
 import * as mapboxgl from 'mapbox-gl'
+import * as MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions'
 
 
 @Component({
@@ -49,6 +52,16 @@ export class MapComponent implements OnInit {
         },
         trackUserLocation: true
       })
+    );
+    
+    //Add driving directions
+    this.map.addControl(
+      new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        unit: 'metric',
+        language: 'fr'
+      }),
+      'bottom-left'
     );
   }
 }
