@@ -20,7 +20,8 @@ export class MapComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.displayMapbox()
+    this.displayMapbox();
+    this.mapboxAddOptions();
   }
 
   //Display Mapbox
@@ -33,6 +34,11 @@ export class MapComponent implements OnInit {
       center: [this.lng, this.lat], // starting position [lng, lat]
       zoom: this.zoom // starting zoom
     });
+  }
+
+  //Methode for add option to mapbox
+  mapboxAddOptions(){
+    this.map.addControl(new mapboxgl.NavigationControl());
   }
 
 }
