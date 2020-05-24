@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "mymapbox"
+    }
+  },
+  "defaultProject": "mymapbox",
+  "cli": {
+    "analytics": "3bb75f0e-6835-48c4-8c1f-af18d34b8a91"
+  }
 }
