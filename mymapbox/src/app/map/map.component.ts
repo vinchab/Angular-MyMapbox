@@ -11,6 +11,8 @@ import * as MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-d
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
+
+
 export class MapComponent {
 
   private accessToken: string = environment.mapbox.accessToken;
