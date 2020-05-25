@@ -11,20 +11,22 @@ import * as MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-d
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements OnInit {
+export class MapComponent {
 
   private accessToken: string = environment.mapbox.accessToken;
   private map: mapboxgl.Map
   private style: string = 'mapbox://styles/mapbox/streets-v11';
-  private zoom = 13
+  private zoom = 9
   private lat = 46.217250;
   private lng = 6.114000;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.displayMapbox();
-    this.mapboxAddOptions();
+    this.mapboxNavigationControl();
+    this.mapboxLocateUserToMap();
+    this.mapboxDrivingDirections();
   }
 
   //Display Mapbox
@@ -39,12 +41,13 @@ export class MapComponent implements OnInit {
     });
   }
 
-  //Methode for add option to mapbox
-  mapboxAddOptions(){
-    //Add navigation control
+  //Add navigation control
+  mapboxNavigationControl(){
     this.map.addControl(new mapboxgl.NavigationControl());
+  }
 
-    //Add locate user to Mapbox
+  //Add locate user to Mapbox
+  mapboxLocateUserToMap(){
     this.map.addControl(
       new mapboxgl.GeolocateControl({
         positionOptions: {
@@ -53,14 +56,15 @@ export class MapComponent implements OnInit {
         trackUserLocation: true
       })
     );
-    
-    //Add driving directions
+  } 
+
+  //Add driving directions
+  mapboxDrivingDirections(){
     this.map.addControl(
       new MapboxDirections({
         accessToken: mapboxgl.accessToken,
         unit: 'metric',
-        language: 'fr',
-        class: 'custom-map'
+        language: 'fr'
       }),
       'top-left'
     );
